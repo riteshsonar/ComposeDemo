@@ -9,7 +9,11 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.sp
 import com.example.composedemo.ui.theme.ComposeDemoTheme
 
 class MainActivity : ComponentActivity() {
@@ -25,7 +29,12 @@ class MainActivity : ComponentActivity() {
                 ) {
                 }
             }
-            Text(text = "Hello Ritesh")
+            Text(text = "Hello Ritesh",
+                fontStyle = FontStyle.Italic,
+                fontWeight = FontWeight.Bold,
+                color = Color.Red,
+                fontSize = 36.sp
+            )
         }
     }
 }
