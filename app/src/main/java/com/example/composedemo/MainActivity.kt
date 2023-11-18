@@ -3,6 +3,7 @@ package com.example.composedemo
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -10,6 +11,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.ColorFilter
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
@@ -29,12 +33,9 @@ class MainActivity : ComponentActivity() {
                 ) {
                 }
             }
-            Text(text = "Hello Ritesh",
-                fontStyle = FontStyle.Italic,
-                fontWeight = FontWeight.Bold,
-                color = Color.Red,
-                fontSize = 36.sp
-            )
+
+            Image(painter = painterResource(id = R.drawable.ic_face), contentDescription = "ritesh",
+                colorFilter = ColorFilter.tint(Color.Red), contentScale = ContentScale.Crop)
         }
     }
 }
