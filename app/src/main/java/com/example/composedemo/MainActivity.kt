@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -33,11 +34,28 @@ class MainActivity : ComponentActivity() {
                 ) {
                 }
             }
+            Box{
+                setContent {
+                    Text("next text show")
+                }
 
-            Image(painter = painterResource(id = R.drawable.ic_face), contentDescription = "ritesh",
-                colorFilter = ColorFilter.tint(Color.Red), contentScale = ContentScale.Crop)
+                Image(painter = painterResource(id = R.drawable.ic_face), contentDescription = "ritesh",
+                    colorFilter = ColorFilter.tint(Color.Red), contentScale = ContentScale.Crop)
+                PreviewMessageCard()
+            }
+
         }
     }
+}
+@Composable
+fun PreviewMessageCard(){
+    MessageCard("Ritesh")
+
+}
+
+@Composable
+fun MessageCard(name: String) {
+    Text(text = "Hello $name!")
 }
 
 @Composable
