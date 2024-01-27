@@ -69,4 +69,17 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-tooling")
     implementation("androidx.compose.ui:ui-tooling-preview")
 
+    // Optional - Included automatically by material, only add when you need
+    // the icons but not the material library (e.g. when using Material3 or a
+    // custom design system based on Foundation)
+    implementation ("androidx.compose.material:material-icons-core")
+    // Optional - Integration with activities
+    implementation ("androidx.activity:activity-compose:1.8.2")
+    // Optional - Integration with ViewModels
+    implementation ("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.1")
+    // Optional - Integration with LiveData
+    implementation ("androidx.compose.runtime:runtime-livedata")
+    // Optional - Integration with RxJava
+    implementation ("androidx.compose.runtime:runtime-rxjava2")
+
 }

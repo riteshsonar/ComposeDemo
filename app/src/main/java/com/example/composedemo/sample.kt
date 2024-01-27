@@ -6,4 +6,9 @@ fun main(args:Array<String>){
     val myString="Hello Everyone"
     val result=myString.removeFirstLastChar()
 
+
+}
+fun App(){
+
+
 }
