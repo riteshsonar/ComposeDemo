@@ -25,56 +25,22 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            ComposeDemoTheme {
-
-                // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-                }
-            }
-            Box{
-                setContent {
-                    Text("next text show")
-                }
-
-                Image(painter = painterResource(id = R.drawable.ic_face), contentDescription = "ritesh",
-                    colorFilter = ColorFilter.tint(Color.Red), contentScale = ContentScale.Crop)
-                PreviewMessageCard()
-            }
-
+            PreviewFunction()
         }
     }
 }
+@Preview(showBackground = true, widthDp = 300, heightDp = 400)
 @Composable
-fun PreviewMessageCard(){
-    MessageCard("Ritesh")
+fun PreviewFunction(){
+    //MessageCard("Ritesh")
+    Image(painter = painterResource(R.drawable.ic_face),
+        contentDescription = "appName",
+        colorFilter = ColorFilter.tint(Color.Blue),
+        contentScale = ContentScale.Crop)
 
 }
 
 @Composable
 fun MessageCard(name: String) {
     Text(text = "Hello $name!")
-}
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true, name = "Hello World", showSystemUi = true)
-@Composable
-fun GreetingPreview() {
-    ComposeDemoTheme {
-        Greeting("Android")
-    }
 }
