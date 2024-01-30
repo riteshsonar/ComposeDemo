@@ -25,6 +25,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -65,4 +66,8 @@ fun TextInput(){
 @Composable
 fun MessageCard(name: String) {
     Text(text = "Hello $name!")
+}
+@Composable
+fun showTextValue(){
+    Text(text = "user follower", color = Color.Blue, textAlign = TextAlign.Center)
 }
