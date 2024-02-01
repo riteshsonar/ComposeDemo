@@ -71,3 +71,4 @@ fun MessageCard(name: String) {
 fun showTextValue(){
     Text(text = "user follower", color = Color.Blue, textAlign = TextAlign.Center)
 }
+
