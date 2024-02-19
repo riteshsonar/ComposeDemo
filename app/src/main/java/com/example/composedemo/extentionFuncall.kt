@@ -6,9 +6,12 @@ fun main() {
     val kotlin = arr1.getEvenNumber()
     println(kotlin)*/
 
-    val input = listOf("san189", "test1", "nitin124", "sam2")
+    /*val input = listOf("san189", "test1", "nitin124", "sam2")
     val sortedList = input.sortedBy { extractNumericValue(it) }
-    println("Output: $sortedList")
+    println("Output: $sortedList")*/
+    val input = listOf<String>("sam189","test1","nitin124","Sam2")
+    val sort= input.sortedBy { extractNumericValue(it) }
+    println("outPut: $sort")
 }
 
 
