@@ -48,10 +48,9 @@ class MainActivity : ComponentActivity() {
 @Preview(showBackground = true, widthDp = 300, heightDp = 500)
 @Composable
 fun PreviewFunction(){
-    Row(horizontalArrangement = Arrangement.SpaceEvenly,
-        verticalAlignment = Alignment.CenterVertically){
-        Text(text = "A" , fontSize = 24.sp)
-        Text(text = "B" , fontSize = 24.sp)
+    Box(contentAlignment = Alignment.Center){
+        Image(painter = painterResource(id = R.drawable.baseline_heart_broken_24), contentDescription ="abc" )
+        Image(painter = painterResource(id = R.drawable.ic_arrow_right_alt_24), contentDescription ="abc" )
     }
 
 
