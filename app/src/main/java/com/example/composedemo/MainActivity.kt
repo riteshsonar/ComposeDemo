@@ -6,6 +6,8 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -15,6 +17,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -26,6 +29,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
@@ -50,17 +54,21 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
-@Preview(showBackground = true, widthDp = 300, heightDp = 500)
+@Preview(showBackground = true, widthDp = 200, heightDp = 200)
 @Composable
 fun PreviewFunction(){
-    Column {
-        ListViewItem(R.drawable.baseline_heart_broken_24,"Ritesh Bagul","Software Devloper")
-        ListViewItem(R.drawable.baseline_heart_broken_24,"Ritesh Bagul","Software Devloper")
-        ListViewItem(R.drawable.baseline_heart_broken_24,"Ritesh Bagul","Software Devloper")
-        ListViewItem(R.drawable.baseline_heart_broken_24,"Ritesh Bagul","Software Devloper")
-        ListViewItem(R.drawable.baseline_heart_broken_24,"Ritesh Bagul","Software Devloper")
-
-    }
+    circularImage()
+   /*Text(text = "Hello",
+        color = Color.White,
+       modifier = Modifier
+           .clickable { }
+           .background(Color.Blue)
+           .size(200.dp)
+           .padding(48.dp)
+           .border(4.dp, Color.Red)
+           .clip(CircleShape)
+           .background(Color.Yellow)
+           )*/
 }
 @Composable
 fun ListViewItem(imgId: Int, name: String,occupation:String){
@@ -72,6 +80,15 @@ fun ListViewItem(imgId: Int, name: String,occupation:String){
             Text(text = occupation, fontWeight = FontWeight.Light, fontSize = 14.sp)
         }
     }
+}
+
+@Composable
+fun circularImage(){
+    Image(painter = painterResource(id = R.drawable.baseline_heart_broken_24),
+        contentScale  = ContentScale.Crop,
+        modifier = Modifier.size(80.dp)
+            .clip(CircleShape)
+            .border(2.dp, Color.LightGray, CircleShape),contentDescription = "ritesh")
 }
 
 
