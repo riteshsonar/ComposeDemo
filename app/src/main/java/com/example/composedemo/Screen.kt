@@ -5,6 +5,8 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Card
@@ -19,14 +21,21 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
-@Preview(heightDp = 500)
+@Preview(heightDp = 500, device = "spec:parent=pixel_5")
 @Composable
 fun previewItem(){
-    Column(modifier = Modifier.verticalScroll(rememberScrollState())) {
+
+    LazyColumn(content = {
+        items(getCategoryList()){
+            BlogCategory(img = it.img, title = it.title, subTitle = it.subTitle)
+        }
+    })
+
+    /*Column(modifier = Modifier.verticalScroll(rememberScrollState())) {
         getCategoryList().map {
             BlogCategory(img = it.img, title = it.title, subTitle = it.subTitle)
         }
-    }
+    }*/
 }
 @Composable
 fun BlogCategory(img:Int, title:String, subTitle: String){

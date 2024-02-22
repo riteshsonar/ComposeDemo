@@ -57,7 +57,7 @@ class MainActivity : ComponentActivity() {
 @Preview(showBackground = true, widthDp = 200, heightDp = 200)
 @Composable
 fun PreviewFunction(){
-    circularImage()
+    previewItem()
    /*Text(text = "Hello",
         color = Color.White,
        modifier = Modifier
