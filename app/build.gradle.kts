@@ -85,4 +85,7 @@ dependencies {
     // Optional - Integration with RxJava
     implementation ("androidx.compose.runtime:runtime-rxjava2")
 
+    //for material compose icon
+    implementation("androidx.compose.material:material-icons-extended:1.6.2")
+
 }

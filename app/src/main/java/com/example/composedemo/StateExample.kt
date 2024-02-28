@@ -1,6 +1,5 @@
 package com.example.composedemo
 
-import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -17,7 +16,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -28,25 +26,26 @@ import androidx.compose.ui.unit.dp
 @Preview
 @Composable
 fun NotificationScreen(){
+    var count: MutableState<Int> = rememberSaveable{
+        mutableStateOf(0)
+    }
     Column(verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier
             .fillMaxSize(1f)
             .background(color = Color.White)) {
-        NotificationCounter()
+        NotificationCounter(count.value) { count.value++ }
+        MessageBar(count.value)
     }
 }
 
 @Composable
-fun NotificationCounter() {
-    var count: MutableState<Int> = rememberSaveable{
-        mutableStateOf(0)
-    }
+fun NotificationCounter(count: Int, increment: () -> Unit) {
+
     Column(verticalArrangement = Arrangement.Center) {
-        Text(text = "You have send ${count.value} notifications")
+        Text(text = "You have send ${count} notifications")
         Button(onClick = {
-            count.value++
-            Log.d("CodeBase","Button Clicked")
+            increment()
         }) {
             Text(text = "Send Notification")
         }
@@ -54,11 +53,11 @@ fun NotificationCounter() {
 
 }
 @Composable
-fun MessageBar(){
+fun MessageBar(count:  Int) {
     Card(elevation = CardDefaults.cardElevation(defaultElevation = 8.dp)) {
         Row(Modifier.padding(8.dp), verticalAlignment = Alignment.CenterVertically) {
             Image(imageVector = Icons.Outlined.Favorite, contentDescription = "",Modifier.padding(8.dp))
-            Text(text = "Message sent so far -10 ")
+            Text(text = "Message sent so far -  $count ")
 
         }
     }
