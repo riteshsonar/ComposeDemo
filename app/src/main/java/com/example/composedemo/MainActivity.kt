@@ -43,16 +43,49 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.MutableLiveData
+import com.example.composedemo.Screens.DataManager
+import com.example.composedemo.Screens.QuoteListScreen
 import com.example.composedemo.ui.theme.ComposeDemoTheme
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import java.nio.file.WatchEvent
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        CoroutineScope(Dispatchers.IO).launch {
+            DataManager.loadAssetsFromFile(applicationContext)
+        }
         setContent {
-            PreviewFunction()
+            App()
         }
     }
+}
+
+@Composable
+fun ClickCounter(clicks: Int, onClick: () -> Unit) {
+    Button(onClick = onClick) {
+        Text("I've been clicked $clicks times")
+    }
+}
+
+@Composable
+fun App(){
+    ClickCounter(clicks = 1) {
+
+    }
+   /* if (DataManager.isDataLoaded.value){
+        QuoteListScreen(data = DataManager.data) {
+            
+        }
+    }else{
+        Box(contentAlignment = Alignment.Center,
+            modifier = Modifier.fillMaxSize(1f)) {
+            Text(text = "Loading...",
+                style = MaterialTheme.typography.bodyMedium)
+        }
+    }*/
 }
 @Preview(showBackground = true, widthDp = 200, heightDp = 200)
 @Composable
@@ -86,7 +119,8 @@ fun ListViewItem(imgId: Int, name: String,occupation:String){
 fun circularImage(){
     Image(painter = painterResource(id = R.drawable.baseline_heart_broken_24),
         contentScale  = ContentScale.Crop,
-        modifier = Modifier.size(80.dp)
+        modifier = Modifier
+            .size(80.dp)
             .clip(CircleShape)
             .border(2.dp, Color.LightGray, CircleShape),contentDescription = "ritesh")
 }

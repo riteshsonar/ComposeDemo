@@ -85,6 +85,9 @@ dependencies {
     // Optional - Integration with RxJava
     implementation ("androidx.compose.runtime:runtime-rxjava2")
 
+    //gson
+    implementation("com.google.code.gson:gson:2.9.0")
+
     //for material compose icon
     implementation("androidx.compose.material:material-icons-extended:1.6.2")
 
