@@ -1,5 +1,6 @@
 package com.example.composedemo.Screens
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -30,6 +31,10 @@ import com.example.composedemo.R
 
 @Composable
 fun QuoteDetail(quote: Quote){
+
+    BackHandler {
+        DataManager.switchPages(null)
+    }
     Box(contentAlignment = Alignment.Center,
         modifier = Modifier
             .fillMaxSize(1f)
@@ -38,7 +43,8 @@ fun QuoteDetail(quote: Quote){
         Card(elevation = CardDefaults.cardElevation(4.dp),
             modifier = Modifier.padding(32.dp)) {
             Column(verticalArrangement = Arrangement.Center,
-                modifier = Modifier.align(alignment = Alignment.CenterHorizontally)
+                modifier = Modifier
+                    .align(alignment = Alignment.CenterHorizontally)
                     .padding(16.dp, 24.dp))
             {
                 Image(imageVector = Icons.Filled.FormatQuote,
@@ -46,7 +52,7 @@ fun QuoteDetail(quote: Quote){
                     modifier = Modifier
                         .size(80.dp)
                         .rotate(180F))
-                Text(text = quote.text,
+                Text(text = quote.quote?:"",
                     fontFamily = FontFamily(Font(R.font.poppins_regular)),
                     style = MaterialTheme.typography.headlineMedium)
                 Spacer(modifier = Modifier.height(16.dp))

@@ -27,35 +27,49 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.composedemo.Data.Model.Quote
 
 @Composable
-fun QuotesListItem(quote: Quote,onClick: () -> Unit){
+fun QuotesListItem(quote: Quote, onClick: (quote:Quote) -> Unit) {
 
     Card(elevation = CardDefaults.cardElevation(4.dp),
-        modifier = Modifier.clickable { onClick() }.padding(8.dp)) {
+        modifier = Modifier
+            .clickable {
+                onClick(quote)
+            }
+            .padding(8.dp)
+    ) {
         Row(modifier = Modifier.padding(16.dp)) {
-            Image(imageVector = Icons.Filled.FormatQuote,
+            Image(
+                imageVector = Icons.Filled.FormatQuote,
                 colorFilter = ColorFilter.tint(Color.White),
                 alignment = Alignment.TopStart,
                 contentDescription = "Quote",
                 modifier = Modifier
                     .size(40.dp)
                     .rotate(180F)
-                    .background(Color.Black))
+                    .background(Color.Black)
+            )
             Spacer(modifier = Modifier.padding(4.dp))
             Column(modifier = Modifier.weight(1f)) {
-                Text(text = quote.text,
+                Text(
+                    text = quote.quote ?: "",
                     style = MaterialTheme.typography.bodyMedium,
-                    modifier = Modifier.padding(0.dp,0.dp,0.dp,0.dp))
-                Box(modifier = Modifier
-                    .background(Color(0XFFEEEEEE))
-                    .fillMaxWidth(.4f)
-                    .height(1.dp))
-                Text(text = quote.author,
+                    modifier = Modifier.padding(0.dp, 0.dp, 0.dp, 0.dp)
+                )
+                Box(
+                    modifier = Modifier
+                        .background(Color(0XFFEEEEEE))
+                        .fillMaxWidth(.4f)
+                        .height(1.dp)
+                )
+                Text(
+                    text = quote.author,
                     style = MaterialTheme.typography.bodyMedium,
-                    modifier = Modifier.padding(4.dp))
+                    modifier = Modifier.padding(4.dp)
+                )
             }
         }
     }

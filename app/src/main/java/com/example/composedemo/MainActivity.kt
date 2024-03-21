@@ -54,11 +54,8 @@ import java.nio.file.WatchEvent
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        CoroutineScope(Dispatchers.IO).launch {
-            DataManager.loadAssetsFromFile(applicationContext)
-        }
+
         setContent {
-            App()
         }
     }
 }
@@ -71,7 +68,7 @@ fun ClickCounter(clicks: Int, onClick: () -> Unit) {
 }
 
 @Composable
-fun App(){
+fun Appa(){
     ClickCounter(clicks = 1) {
 
     }

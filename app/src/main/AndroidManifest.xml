@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools" >
 
     <uses-permission android:name="com.google.android.gms.permission.AD_ID" />
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
@@ -15,12 +16,12 @@
         android:theme="@style/Theme.ComposeDemo"
         tools:targetApi="31" >
         <activity
-            android:name=".ui.theme.Ui.SecondActivity"
+            android:name=".MainActivity"
             android:exported="false"
             android:theme="@style/Theme.ComposeDemo"/>
 
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.theme.Ui.SecondActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.ComposeDemo" >
